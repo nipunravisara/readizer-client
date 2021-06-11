@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.Modal {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  right: 40%;
+  bottom: 40%;
+  background-color: papayawhip;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.274);
+}
