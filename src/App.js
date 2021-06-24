@@ -6,6 +6,7 @@ import { getPosts } from "./actions/post";
 import HeroSection from "./containers/HeroSection";
 import Header from "./layout/Header";
 import Footer from "./containers/Footer";
+import CreatePost from "./containers/CreatePost";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -16,12 +17,13 @@ const App = () => {
 
   return (
     <>
-      <Header />
-      <HeroSection />
+      {/* <Header /> */}
+      {/* <HeroSection /> */}
       <PageLayout>
-        <PostsList />
+        <CreatePost/>
+        {/* <PostsList /> */}
       </PageLayout>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import HeroIcon from "../assets/svgs/HeroIocn.jsx";
+import Button from '../components/Button';
 
 const HeroSection = () => {
   return (
@@ -12,6 +13,7 @@ const HeroSection = () => {
       <h1 className="text-5xl lg:text-7xl font-title text-center mb-4 font-extrabold text-gray-900">
         Read. Write. Share.
       </h1>
+      <Button title="Create Post" type="primary" />
     </div>
   );
 };

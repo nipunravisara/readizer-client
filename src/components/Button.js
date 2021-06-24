@@ -3,7 +3,7 @@ import React from "react";
 const Button = ({ title, type }) => {
   return (
     <div
-      className={`w-min mx-2 px-4 py-2 rounded-md transition-colors duration-300 ${
+      className={`mx-2 px-4 py-2 rounded-md transition-colors duration-300 ${
         type === "primary" ? "hover:bg-green-200" : "hover:bg-gray-200"
       }`}
     >
