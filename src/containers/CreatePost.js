@@ -1,20 +1,59 @@
 import React, {useState} from 'react';
-import {Editor, EditorState} from 'draft-js'
+import Editor from "rich-markdown-editor";
+import PageLayout from "../layout/PageLayout";
+import Button from '../components/Button';
+import { useDispatch } from "react-redux";
+import { createPost } from "../actions/post";
+import Header from "../layout/Header";
 
 const CreatePost = () => {
+	const [title, setTitle] = useState("");
+	const [tags, setTags] = useState("");
+	const [content, setContent] = useState("");
+	
+	const dispatch = useDispatch();
 
-	function myBlockStyleFn(contentBlock) {
-		const type = contentBlock.getType();
-		if (type === 'blockquote') {
-		  return 'superFancyBlockquote';
-		}
-	  }
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		dispatch(
+		  createPost({
+			title: title,
+			content: content,
+			author: "nipunravisara",
+			tags: tags.split(","),
+			images: "images",
+		  })
+		);
+	  };
 
-	const [editorState, setEditorState] = useState(()=> EditorState.createEmpty())
 	return (
-	  <div>
-		<Editor editorState={editorState} onChange={setEditorState}  blockStyleFn={myBlockStyleFn}/>
-	  </div>
+		<>
+			<Header/>
+			<PageLayout>
+				<div className="py-12 h-screen flex flex-col justify-between">
+					<div>
+						<div className="p-2">
+							<input  onChange={(e) => setTitle(e.target.value)} placeholder="Title"  type="text" className="relative outline-none rounded py-4 px-3 w-full bg-white text-4xl placeholder-gray-400 focus:outline-none focus:shadow-outline" />
+						</div>
+						<div className="p-2">
+							<input onChange={(e) => setTags(e.target.value)} placeholder="Tags eg: #Tag1, #Tag2"  type="text" className="relative outline-none rounded py-4 px-3 w-full bg-white text-green-500 text-2xl placeholder-gray-400 focus:outline-none focus:shadow-outline" />
+						</div>
+						<div className="py-8">
+							<Editor
+								placeholder="Start typing here..."
+								defaultValue={content}
+								onChange={(value) => setContent(value)}
+							/>
+						</div>
+					</div>
+					<div className="flex flex-row justify-end w-full">
+						<Button title="Publish" type="primary" onClick={(e) => handleSubmit(e)}/>
+						&nbsp;
+						<Button title="Cancel" link="/"/>
+					</div>
+				</div>
+			</PageLayout>
+		</>
 	)
 }
 

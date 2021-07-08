@@ -9,30 +9,12 @@ const PostsList = () => {
   const posts = useSelector((state) => state.posts);
   console.log(posts);
 
-  const dispatch = useDispatch();
-
-  const handleSubmit = (e) => {
-    // e.preventDefault();
-    dispatch(
-      createPost({
-        title: "new",
-        content: "text",
-        author: "ravi",
-        tags: ["a", "b"],
-        images: "a",
-      })
-    );
-  };
-
-  const postss = [1, 2, 3, 4, 5];
-
   return (
     <div className="my-10">
       <Title title="Recent" type="title" />
-      {postss.map((post) => (
+      {posts.map((post) => (
         <PostCard post={post} />
       ))}
-      <button onClick={() => handleSubmit()}>press</button>
     </div>
   );
 };

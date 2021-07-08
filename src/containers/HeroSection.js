@@ -13,7 +13,7 @@ const HeroSection = () => {
       <h1 className="text-5xl lg:text-7xl font-title text-center mb-4 font-extrabold text-gray-900">
         Read. Write. Share.
       </h1>
-      <Button title="Create Post" type="primary" />
+      <Button title="Create Post" type="primary" link="/create-post"/>
     </div>
   );
 };
