@@ -3,7 +3,7 @@ import Editor from "rich-markdown-editor";
 import PageLayout from "../layout/PageLayout";
 import Button from '../components/Button';
 import { useDispatch } from "react-redux";
-import { createPost } from "../actions/post";
+import { actions } from "../store/actions";
 import Header from "../layout/Header";
 
 const CreatePost = () => {
@@ -16,7 +16,7 @@ const CreatePost = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		dispatch(
-		  createPost({
+			actions.createPost({
 			title: title,
 			content: content,
 			author: "nipunravisara",

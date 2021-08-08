@@ -1,8 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Home from "./containers/Home";
 import ViewPost from "./containers/ViewPost";
-import { useDispatch } from "react-redux";
-import { getPosts } from "./actions/post";
 
 import CreatePost from "./containers/CreatePost";
 import {
@@ -12,11 +10,6 @@ import {
 } from "react-router-dom";
 
 const App = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [dispatch]);
 
   return (
     <Router>
@@ -27,7 +20,7 @@ const App = () => {
           <Route exact path="/create-post">
             <CreatePost />
           </Route>
-          <Route exact path="/view-post">
+          <Route exact path="/post/:postId">
             <ViewPost />
           </Route>
         </Switch>
