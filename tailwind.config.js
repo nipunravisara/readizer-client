@@ -3,8 +3,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      title: ["Abril Fatface", "sans-serif"],
-      body: ["Raleway", "sans-serif"],
+      primary: ["Poppins", "sans-serif"],
     },
     extend: {
       backgroundImage: (theme) => ({

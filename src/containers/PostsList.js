@@ -1,40 +1,25 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { createPost } from "../actions/post";
 import Title from "../components/Title";
 import PostCard from "../components/PostCard";
+import { Link } from 'react-router-dom';
 
 const PostsList = () => {
   const posts = useSelector((state) => state.posts);
-  console.log(posts);
-
-  const dispatch = useDispatch();
-
-  const handleSubmit = (e) => {
-    // e.preventDefault();
-    dispatch(
-      createPost({
-        title: "new",
-        content: "text",
-        author: "ravi",
-        tags: ["a", "b"],
-        images: "a",
-      })
-    );
-  };
-
-  const postss = [1, 2, 3, 4, 5];
+  console.log(1111, posts);
 
   return (
-    <div className="my-10">
+    <div className="my-5">
       <Title title="Recent" type="title" />
-      {postss.map((post) => (
-        <PostCard post={post} />
+      {posts.map((post) => (
+        <Link to="/post" params={{ postId:post._id }} key={post._id}>
+          <PostCard post={post}/>
+        </Link>
       ))}
-      <button onClick={() => handleSubmit()}>press</button>
     </div>
   );
 };
+
+
 
 export default PostsList;
