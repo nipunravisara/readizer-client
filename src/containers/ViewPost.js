@@ -1,5 +1,4 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 import Editor from "rich-markdown-editor";
 import PageLayout from "../layout/PageLayout";
 import Header from "../layout/Header";
