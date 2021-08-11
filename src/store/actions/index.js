@@ -1,4 +1,4 @@
-import { getPosts, createPost } from './post';
+import { getPosts,  createPost } from './post';
 
 export const actions = {
   getPosts,

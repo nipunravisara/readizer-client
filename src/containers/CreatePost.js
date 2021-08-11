@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import Editor from "rich-markdown-editor";
 import PageLayout from "../layout/PageLayout";
 import Button from '../components/Button';
 import { useDispatch } from "react-redux";
 import { actions } from "../store/actions";
 import Header from "../layout/Header";
+import MDEditor from '@uiw/react-md-editor';
 
 const CreatePost = () => {
 	const [title, setTitle] = useState("");
@@ -39,9 +39,8 @@ const CreatePost = () => {
 							<input onChange={(e) => setTags(e.target.value)} placeholder="Tags eg: #Tag1, #Tag2"  type="text" className="relative outline-none rounded py-4 px-3 w-full bg-white text-green-500 text-2xl placeholder-gray-400 focus:outline-none focus:shadow-outline" />
 						</div>
 						<div className="py-8">
-							<Editor
-								placeholder="Start typing here..."
-								defaultValue={content}
+							<MDEditor
+								value={content}
 								onChange={(value) => setContent(value)}
 							/>
 						</div>

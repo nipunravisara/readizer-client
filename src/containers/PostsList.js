@@ -6,13 +6,12 @@ import { Link } from 'react-router-dom';
 
 const PostsList = () => {
   const posts = useSelector((state) => state.posts);
-  console.log(1111, posts);
 
   return (
     <div className="my-5">
       <Title title="Recent" type="title" />
       {posts.map((post) => (
-        <Link to="/post" params={{ postId:post._id }} key={post._id}>
+        <Link to={`post/${post._id}`} params={{ postId:post._id }} key={post._id}>
           <PostCard post={post}/>
         </Link>
       ))}
